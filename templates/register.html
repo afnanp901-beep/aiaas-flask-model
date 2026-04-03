@@ -1,0 +1,407 @@
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>AIaaS Model </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="../static/site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="../static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="../static/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../static/assets/css/slick.css">
+            <link rel="stylesheet" href="../static/assets/css/nice-select.css">
+            <link rel="stylesheet" href="../static/assets/css/style.css">
+  <script language="javascript">
+function validate()
+{
+	if(document.form1.name.value=="")
+	{
+	alert("Enter the Name");
+	document.form1.name.focus();
+	return false;
+	}
+	
+	if(document.form1.mobile.value=="")
+	{
+	alert("Enter the Mobile No.");
+	document.form1.mobile.focus();
+	return false;
+	}
+	if(isNaN(document.form1.mobile.value))
+	{
+	alert("Invalid Mobile No.");
+	document.form1.mobile.select();
+	return false;
+	}
+	if(document.form1.mobile.value.length!=10)
+	{
+	alert("Mobile No. must be 10 digits!");
+	document.form1.mobile.select();
+	return false;
+	}
+	if(document.form1.email.value=="")
+	{
+	alert("Enter the Email");
+	document.form1.email.focus();
+	return false;
+	}
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.form1.email.value))  
+	{
+	
+	}
+	else
+	{
+	alert("Invalid E-mail!");
+	document.form1.email.select();
+	return false;
+	}
+	if(document.form1.location.value=="")
+	{
+	alert("Enter the Location");
+	document.form1.location.focus();
+	return false;
+	}
+	if(document.form1.country.value=="")
+	{
+	alert("Enter the Country");
+	document.form1.country.focus();
+	return false;
+	}
+	if(document.form1.uname.value=="")
+	{
+	alert("Enter the Username");
+	document.form1.uname.focus();
+	return false;
+	}
+	if(document.form1.pass.value=="")
+	{
+	alert("Enter the Password");
+	document.form1.pass.focus();
+	return false;
+	}
+	if(document.form1.cpass.value=="")
+	{
+	alert("Enter the Confirm Password");
+	document.form1.cpass.focus();
+	return false;
+	}
+	if(document.form1.pass.value!=document.form1.cpass.value)
+	{
+	alert("Password does not match!");
+	document.form1.cpass.select();
+	return false;
+	}
+return true;
+}
+</script>
+
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    <!--<div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../static/assets/img/logo/loder.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparent">
+            <div class="main-header">
+               <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                  <a href="../static/index.html"><img src="../static/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                         <ul id="navigation">                                                                                                                                     
+                                            <li><a href="/">Home</a></li>
+                                            <li class="add-list"><a href="/login_user">Model User</a></li>
+                                            <li><a href="/login_dev">Model Owner</a></li>
+                                            <li><a href="/login">Admin</a></li>
+                                            <!--<li><a href="#">Page</a>
+                                                <ul class="submenu">
+                                                    <li><a href="../static/blog.html">Blog</a></li>
+                                                    <li><a href="../static/blog_details.html">Blog Details</a></li>
+                                                    <li><a href="../static/elements.html">Element</a></li>
+                                                    <li><a href="../static/listing_details.html">Listing details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="../static/contact.html">Contact</a></li>
+                                            <li class="add-list"><a href="../static/listing_details.html"><i class="ti-plus"></i> add Listing</a></li>
+                                            <li class="login"><a href="#">
+                                                <i class="ti-user"></i> Sign in or Register</a>
+                                            </li>-->
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main>
+
+        <!-- Hero Start-->
+        <div class="hero-area3 hero-overly2 d-flex align-items-center ">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-9">
+                        <div class="hero-cap text-center pt-50 pb-20">
+                            <h2>AIaaS Model</h2>
+                        </div>
+                        <!--Hero form -->
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- listing Area Start -->
+        <div class="listing-area pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+				
+					<style type="text/css">
+					.glass-container {
+  width: 80%;
+  height: 80%;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Border */
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1); /* Light blur bg */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  backdrop-filter: blur(10px); /* Glass effect */
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+					</style>
+                    <div class="col-xl-8 col-lg-8 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="count mb-35">
+                                    
+									<div class="glass-container">
+									<img src="../static/assets/cm1.jpg" name= class="img-fluid">
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- Left content -->
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="row">
+                            <div class="col-12">
+                                    <div class="small-section-tittle2 mb-45">
+                                    <h4>User Registration</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Job Category Listing start -->
+						<form name="form1" method="post">
+						{% if msg=="success" %}
+				<span style="color:#009900">Registered Success, wait for approval..</span>
+				<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+   window.location.href= '/login_user';
+}, 2000);
+</script>
+				{% endif %}
+				
+				{% if msg=="fail" %}
+				<span style="color:#FF0000">Already Exist!</span>
+				{% endif %}
+                        <div class="category-listing mb-50">
+                            <!-- single one -->
+                            <div class="single-listing">
+                                <!-- input -->
+                                <div class="input-form">
+									<label>Name</label>
+                                    <input type="text" name="name" placeholder="">
+                                </div>
+								<div class="input-form">
+									<label>Mobile No.</label>
+                                    <input type="text" name="mobile" placeholder="">
+                                </div>
+								<div class="input-form">
+									<label>Email</label>
+                                    <input type="text" name="email" placeholder="">
+                                </div>
+								<div class="input-form">
+									<label>Location</label>
+                                    <input type="text" name="location" placeholder="">
+                                </div>
+								<div class="input-form">
+									<label>Country</label>
+                                    <input type="text" name="country" placeholder="">
+                                </div>
+								<div class="input-form">
+									<label>Username</label>
+                                    <input type="text" name="uname" placeholder="" value="{{m_id}}">
+                                </div>
+								<div class="input-form">
+									<label>Password</label>
+                                    <input type="password" name="pass" placeholder="">
+                                </div>
+								<div class="input-form">
+									<label>Confirm Password</label>
+                                    <input type="password" name="cpass" placeholder="">
+                                </div>
+                               
+                               
+                            </div>
+
+                            <div class="single-listing">
+                               
+                                 <button type="submit" class="btn list-btn mt-20" onClick="return validate()">Register</button>
+                            </div>
+                        </div>
+						</form>
+						
+                        <!-- Job Category Listing End -->
+                    </div>
+                    <!-- Right content -->
+					
+				
+					
+					
+					
+					
+                </div>
+            </div>
+        </div>
+        <!-- listing-area Area End -->
+
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+               <div class="footer-top footer-padding">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <!-- logo -->
+                                    <div class="footer-logo">
+                                        <a href="../static/index.html"><img src="../static/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Quick Link</h4>
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/login">Admin</a></li>
+                                   
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                      
+                     
+                    </div>
+               </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+ 					AIaaS Model <a href="https://colorlib.com" target="_blank"></a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                           
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+
+    <!-- JS here -->
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../static/assets/js/popper.min.js"></script>
+        <script src="../static/assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="../static/assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="../static/assets/js/owl.carousel.min.js"></script>
+        <script src="../static/assets/js/slick.min.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="../static/assets/js/wow.min.js"></script>
+        <script src="../static/assets/js/price-range.js"></script>
+		<script src="../static/assets/js/animated.headline.js"></script>
+        <script src="../static/assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Nice-select, sticky -->
+        <script src="../static/assets/js/jquery.nice-select.min.js"></script>
+		<script src="../static/assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="../static/assets/js/contact.js"></script>
+        <script src="../static/assets/js/jquery.form.js"></script>
+        <script src="../static/assets/js/jquery.validate.min.js"></script>
+        <script src="../static/assets/js/mail-script.js"></script>
+        <script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="../static/assets/js/plugins.js"></script>
+        <script src="../static/assets/js/main.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,458 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AIaas Model</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/web/images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link href="../../static/web/css/style.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0px;
+      background-color: #fdf2f2;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b91c1c;
+    }
+
+    .table-container {
+      max-width: 1000px;
+      margin: auto;
+      overflow-x: auto;
+      background: #fffafa;
+      box-shadow: 0 0 10px rgba(255,0,0,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #fecaca;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #fcdcdc;
+    }
+
+    th {
+      background-color: #dc2626;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff1f1;
+    }
+
+    tr:hover {
+      background-color:#FFFFFF;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+  
+  <style>
+       
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .profile-img {
+            display: block;
+            margin: 15px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FF3300;
+        }
+        .info {
+            margin: 20px 0;
+        }
+        .info p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .status {
+            font-weight: bold;
+            color: #ff9800;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background:#FF3300;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+ 
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <!--<div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>-->
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header" style="background-color:#FF0000">
+            <div class="brand-logo">
+                <a href="../../static/web/index.html">
+                 <h3 style="color:#FFFFFF">Model Owner</h3>
+                   <!-- <b class="logo-abbr"><img src="../../static/web/images/logo.png" alt=""> </b>
+                    <span class="logo-compact"><img src="../../static/web/images/logo-compact.png" alt=""></span>
+                    <span class="brand-title">
+                        <img src="../../static/web/images/logo-text.png" alt="">
+                    </span>-->
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        
+                       
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="../../static/web/images/profile.jpg" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile   dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                       
+                                        <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+					<li>
+                        <a href="/dev_home" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                        
+                    </li>
+					<!--<li>
+                        <a class="has-arrow" href="/view_data1" aria-expanded="false">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Add Information</span>
+                        </a>
+                        <ul aria-expanded="false">
+							<li><a href="/add_dept">Department</a></li>
+                            <li><a href="/upload">Upload Data</a></li>
+                            <li><a href="/view_data1">View Data</a></li>
+                        
+                          
+                        </ul>
+                    </li>-->
+				
+					
+					<li>
+                        <a class="" href="/dev_upload" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">Deploy Model</span>
+                        </a>
+					</li>	
+					<li>
+                        <a class="" href="/dev_usage" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">Model Usage</span>
+                        </a>
+					</li>	
+					
+					<li>
+                        <a class="" href="/logout" aria-expanded="false">
+                           <i class="icon-notebook menu-icon"></i><span class="nav-text">Logout</span>
+                        </a>
+					</li>	
+						
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/dev_home">Dashboard</a></li>
+                        
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+								
+								
+								{% if msg=="success" %}
+					<span style="color:#00CC00">Model Deployed..</span>
+					<script>
+					//Using setTimeout to execute a function after 5 seconds.
+					setTimeout(function () {
+					   //Redirect with JavaScript
+					   window.location.href= '/dev_view?mid={{mid}}';
+					}, 1000);
+					</script>
+					
+					{% endif %}
+				
+						<div class="container mt-5">
+  <h2 class="mb-4 text-center">CrimeNet Model Meta Information</h2>
+ 
+					
+  <form action="" method="post" class="border p-4 shadow rounded bg-light">
+
+    <div class="mb-3">
+      <label for="model_id" class="form-label">Model ID</label>
+      <input type="text" class="form-control" id="model_id" name="model_id" value="{{mdata[2]}}">
+    </div>
+	<div class="mb-3">
+      <label for="model_owner_id" class="form-label">Model Owner ID</label>
+      <input type="text" class="form-control" id="model_owner_id" name="model_owner_id" value="{{data[6]}}">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="model_name" class="form-label">Model Name</label>
+      <input type="text" class="form-control" id="model_name" name="model_name" value="CrimeNet Face Recognition AI">
+    </div>
+
+    <div class="mb-3">
+      <label for="model_version" class="form-label">Model Version</label>
+      <input type="text" class="form-control" id="model_version" name="model_version" value="v1.0">
+    </div>
+
+    
+    <div class="mb-3">
+      <label for="model_description" class="form-label">Model Description</label>
+      <textarea class="form-control" id="model_description" name="model_description" rows="3">Face recognition AI model for crime detection.</textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="model_type" class="form-label">Model Type</label>
+      <select class="form-control" id="model_type" name="model_type">
+        <option selected>Classification</option>
+        <option>Regression</option>
+        <option>Clustering</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="input_type" class="form-label">Input Type</label>
+      <input type="text" class="form-control" id="input_type" name="input_type" value="Encrypted Facial Features (FHE)">
+    </div>
+
+    <div class="mb-3">
+      <label for="output_type" class="form-label">Output Type</label>
+      <input type="text" class="form-control" id="output_type" name="output_type" value="Suspect Identity with Confidence Score">
+    </div>
+
+    <div class="mb-3">
+      <label for="model_algorithm" class="form-label">Model Algorithm</label>
+      <input type="text" class="form-control" id="model_algorithm" name="model_algorithm" value="Convolutional Neural Network (CNN)">
+    </div>
+
+    <div class="mb-3">
+      <label for="training_dataset" class="form-label">Training Dataset Info</label>
+      <textarea class="form-control" id="training_dataset" name="training_dataset" rows="2">50,000 labeled face images from crime database.</textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="model_accuracy" class="form-label">Model Accuracy</label>
+      <input type="text" class="form-control" id="model_accuracy" name="model_accuracy" value="{{acc}}%">
+    </div>
+
+    <div class="mb-3">
+      <label for="evaluation_metrics" class="form-label">Evaluation Metrics</label>
+      <input type="text" class="form-control" id="evaluation_metrics" name="evaluation_metrics" value="Accuracy, Precision, Recall, F1-Score">
+    </div>
+
+    <div class="mb-3">
+      <label for="homomorphic_encryption" class="form-label">Homomorphic Encryption</label>
+      <select id="homomorphic_encryption" class="form-control" name="homomorphic_encryption">
+        <option selected>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="encryption_status" class="form-label">Encryption Status</label>
+      <input type="text" class="form-control" id="encryption_status" name="encryption_status" value="Encrypted">
+    </div>
+
+    <div class="mb-3">
+      <label for="deployment_date" class="form-label">Model Deployment Date</label>
+      <input type="date" class="form-control" id="deployment_date" name="deployment_date" value="" required>
+    </div>
+
+    <!--<div class="mb-3">
+      <label for="last_updated" class="form-label">Last Updated Date</label>
+      <input type="date" class="form-control" id="last_updated" name="last_updated" value="2025-03-10">
+    </div>
+
+    <div class="mb-3">
+      <label for="usage_count" class="form-label">Usage Count</label>
+      <input type="number" class="form-control" id="usage_count" name="usage_count" value="285">
+    </div>-->
+
+    <div class="mb-3">
+      <label for="access_permissions" class="form-label">Access Permissions</label>
+      <input type="text" class="form-control" id="access_permissions" name="access_permissions" value="Authorized Law Enforcement Agencies Only">
+    </div>
+
+    <div class="mb-3">
+      <label for="license_type" class="form-label">License Type</label>
+      <select id="license_type" class="form-control" name="license_type">
+        <option selected>Proprietary</option>
+        <option>Open Source</option>
+        <option>Commercial</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="compliance_status" class="form-label">Compliance Status</label>
+      <select id="compliance_status" class="form-control" name="compliance_status">
+        <option selected>Compliant</option>
+        <option>Non-Compliant</option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Submit Metadata</button>
+    </div>
+
+  </form>
+</div>
+								
+								
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <!--<div class="footer">
+            <div class="copyright">
+                <p>AIaas Model <a href="https://themeforest.net/user/quixlab"></a> </p>
+            </div>
+        </div>-->
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="../../static/web/plugins/common/common.min.js"></script>
+    <script src="../../static/web/js/custom.min.js"></script>
+    <script src="../../static/web/js/settings.js"></script>
+    <script src="../../static/web/js/gleek.js"></script>
+    <script src="../../static/web/js/styleSwitcher.js"></script>
+
+    <script src="../../static/web/plugins/validation/jquery.validate.min.js"></script>
+    <script src="../../static/web/plugins/validation/jquery.validate-init.js"></script>
+
+</body>
+
+</html>

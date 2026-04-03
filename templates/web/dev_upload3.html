@@ -1,0 +1,528 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AIaas Model</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/web/images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link href="../../static/web/css/style.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0px;
+      background-color: #fdf2f2;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b91c1c;
+    }
+
+    .table-container {
+      max-width: 1000px;
+      margin: auto;
+      overflow-x: auto;
+      background: #fffafa;
+      box-shadow: 0 0 10px rgba(255,0,0,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #fecaca;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #fcdcdc;
+    }
+
+    th {
+      background-color: #dc2626;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff1f1;
+    }
+
+    tr:hover {
+      background-color:#FFFFFF;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+  
+  <style>
+       
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .profile-img {
+            display: block;
+            margin: 15px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FF3300;
+        }
+        .info {
+            margin: 20px 0;
+        }
+        .info p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .status {
+            font-weight: bold;
+            color: #ff9800;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background:#FF3300;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+ <script>
+        function updateTextboxes() {
+            let count = document.getElementById("numberInput").value;
+            let container = document.getElementById("textboxContainer");
+
+            // Clear previous textboxes
+            container.innerHTML = "";
+
+            // Add new textboxes
+            for (let i = 0; i < count; i++) {
+                let textbox = document.createElement("input");
+                textbox.type = "text";
+				textbox.name = "textboxes[]"; 
+                textbox.placeholder = "Label " + (i + 1);
+                textbox.style.display = "block";
+                textbox.style.marginBottom = "5px";
+                container.appendChild(textbox);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <!--<div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>-->
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header" style="background-color:#FF0000">
+            <div class="brand-logo">
+                <a href="../../static/web/index.html">
+                 <h2 style="color:#FFFFFF">Developer</h2>
+                   <!-- <b class="logo-abbr"><img src="../../static/web/images/logo.png" alt=""> </b>
+                    <span class="logo-compact"><img src="../../static/web/images/logo-compact.png" alt=""></span>
+                    <span class="brand-title">
+                        <img src="../../static/web/images/logo-text.png" alt="">
+                    </span>-->
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        
+                       
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="../../static/web/images/profile.jpg" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile   dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                       
+                                        <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+					<li>
+                        <a href="/dev_home" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                        
+                    </li>
+					<!--<li>
+                        <a class="has-arrow" href="/view_data1" aria-expanded="false">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Add Information</span>
+                        </a>
+                        <ul aria-expanded="false">
+							<li><a href="/add_dept">Department</a></li>
+                            <li><a href="/upload">Upload Data</a></li>
+                            <li><a href="/view_data1">View Data</a></li>
+                        
+                          
+                        </ul>
+                    </li>-->
+				
+					
+					<li>
+                        <a class="" href="/dev_upload" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">Encrypt Model</span>
+                        </a>
+					</li>	
+					
+					<li>
+                        <a class="" href="/logout" aria-expanded="false">
+                           <i class="icon-notebook menu-icon"></i><span class="nav-text">Logout</span>
+                        </a>
+					</li>	
+						
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/dev_home">Dashboard</a></li>
+                        
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+								
+									{% if msg=="success" %}
+					<script>
+					   window.location.href= '/dev_upload4?mid={{mid}}&bid={{bid}}';
+					</script>
+					
+					{% endif %}
+					{% if msg=="fail" %}
+					<span style="color:#FF0000"></span>
+					{% endif %}
+						<form name="form1" method="post" enctype="multipart/form-data">
+							<div class="row">
+								<div class="col-md-4">
+									<h4>Model: {{mdata[1]}}</h4>
+									<div class="row">
+									<div class="col-md-11">
+									
+										<table class="table">
+											<tr>
+												<th>#</th>
+												<th>Label</th>
+												<th>View</th>
+											</tr>
+											{% for ms in bdata %}
+											<tr>
+												<td>{{loop.index}}</td>
+												<td>
+												<a href="/dev_upload3?mid={{ms[1]}}&bid={{ms[0]}}">{{ms[2]}}</a>
+												
+												</td>
+												<td><a href="/dev_upload4?mid={{ms[1]}}&bid={{ms[0]}}">View</a></td>
+											</tr>
+											{% endfor %}
+										</table>
+									
+									</div>
+									</div>
+									
+								</div>
+								<div class="col-md-8">
+								<h3>Add Crime Data</h3>
+									<h4>Label: {{label_n}}</h4>
+									<div class="row">
+										<div class="col-md-4">
+										<label>Select Folder</label>
+											<input type="file" name="images" class="form-control" webkitdirectory directory multiple accept="image/*" required>
+											
+										</div>
+										<div class="col-md-4">
+											<label>Full Name</label>
+											<input type="text" name="name" class="form-control" required>
+										</div>
+									</div>
+									<br>
+									
+									<div class="row">
+										
+										<div class="col-md-4">
+											<label>Date of Birth</label>
+											<input type="date" name="dob" class="form-control" required>
+										</div>
+										<div class="col-md-4">
+											<label>Gender</label>
+											<select id="gender" name="gender" class="form-control" requied>
+      <option value="">--Select--</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+										</div>
+									</div>
+									<br>
+									
+									<div class="row">
+										
+										<div class="col-md-4">
+											<label>Type of Crime</label>
+											<select id="crime_type" name="crime_type" class="form-control" required>
+  <option value="">-- Select Crime Type --</option>
+
+  <optgroup label="Violent Crimes">
+    <option value="murder">Murder / Homicide</option>
+    <option value="attempted_murder">Attempted Murder</option>
+    <option value="assault">Assault</option>
+    <option value="aggravated_assault">Aggravated Assault</option>
+    <option value="domestic_violence">Domestic Violence</option>
+    <option value="kidnapping">Kidnapping / Abduction</option>
+    <option value="manslaughter">Manslaughter</option>
+    <option value="robbery">Robbery (with violence)</option>
+    <option value="rape">Rape / Sexual Assault</option>
+  </optgroup>
+
+  <optgroup label="Property Crimes">
+    <option value="burglary">Burglary</option>
+    <option value="theft">Theft / Larceny</option>
+    <option value="vehicle_theft">Vehicle Theft</option>
+    <option value="arson">Arson</option>
+    <option value="shoplifting">Shoplifting</option>
+    <option value="vandalism">Vandalism</option>
+    <option value="trespassing">Trespassing</option>
+  </optgroup>
+
+  <optgroup label="White-Collar Crimes">
+    <option value="fraud">Fraud</option>
+    <option value="embezzlement">Embezzlement</option>
+    <option value="money_laundering">Money Laundering</option>
+    <option value="forgery">Forgery</option>
+    <option value="insider_trading">Insider Trading</option>
+    <option value="bribery">Bribery / Corruption</option>
+  </optgroup>
+
+  <optgroup label="Cybercrimes">
+    <option value="hacking">Hacking / Unauthorized Access</option>
+    <option value="phishing">Phishing</option>
+    <option value="online_fraud">Online Fraud / Scams</option>
+    <option value="cyberbullying">Cyberbullying</option>
+    <option value="malware_distribution">Distribution of Malware</option>
+    <option value="identity_theft">Identity Theft</option>
+  </optgroup>
+
+  <optgroup label="Organized Crimes">
+    <option value="human_trafficking">Human Trafficking</option>
+    <option value="drug_trafficking">Drug Trafficking</option>
+    <option value="arms_trafficking">Arms Trafficking</option>
+    <option value="racketeering">Racketeering</option>
+    <option value="smuggling">Smuggling</option>
+  </optgroup>
+
+  <optgroup label="Public Order Crimes">
+    <option value="rioting">Rioting</option>
+    <option value="disorderly_conduct">Disorderly Conduct</option>
+    <option value="public_intoxication">Public Intoxication</option>
+    <option value="illegal_protesting">Illegal Protesting</option>
+    <option value="resisting_arrest">Resisting Arrest</option>
+  </optgroup>
+
+  <optgroup label="Traffic-Related Crimes">
+    <option value="hit_and_run">Hit and Run</option>
+    <option value="dui">DUI / DWI</option>
+    <option value="reckless_driving">Reckless Driving</option>
+    <option value="unlicensed_driving">Driving Without a License</option>
+    <option value="road_rage">Road Rage Assault</option>
+  </optgroup>
+
+</select>
+										</div>
+										<div class="col-md-4">
+											<label>Date of Crime</label>
+											<input type="date" name="crime_date" class="form-control" required>
+										</div>
+									</div>
+									<br>
+									
+									<div class="row">
+										<div class="col-md-8">
+											<label>Crime Details</label>
+											<textarea name="details" class="form-control" required></textarea>
+										</div>
+										
+										
+									</div>
+									<br>
+									
+									<div class="row">
+										<div class="col-md-4">
+											<label>Status</label>
+											<select id="status" name="status" class="form-control" required>
+      <option value="">--Select--</option>
+      <option value="under_investigation">Under Investigation</option>
+      <option value="arrested">Arrested</option>
+      <option value="convicted">Convicted</option>
+      <option value="released">Released</option>
+    </select>
+										</div>
+										<div class="col-md-4">
+											<label>Last known address</label>
+											<input type="text" name="address" class="form-control" required>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-md-4"></div>
+										<div class="col-md-4">
+											
+											<input type="submit" name="btn" class="btn btn-primary" value="Upload">
+										</div>
+									</div>
+									
+								</div>
+								
+							
+							</div>
+							
+							
+							
+							
+						</form>
+								
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <!--<div class="footer">
+            <div class="copyright">
+                <p>AIaas Model <a href="https://themeforest.net/user/quixlab"></a> </p>
+            </div>
+        </div>-->
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="../../static/web/plugins/common/common.min.js"></script>
+    <script src="../../static/web/js/custom.min.js"></script>
+    <script src="../../static/web/js/settings.js"></script>
+    <script src="../../static/web/js/gleek.js"></script>
+    <script src="../../static/web/js/styleSwitcher.js"></script>
+
+    <script src="../../static/web/plugins/validation/jquery.validate.min.js"></script>
+    <script src="../../static/web/plugins/validation/jquery.validate-init.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Face Upload</title>
+</head>
+<body>
+  <h2>Upload Face Image and Encrypted Criminal Data</h2>
+  <form method="POST" action="/upload" enctype="multipart/form-data">
+    <label>Encrypted AES Key (binary):</label><br>
+    <input type="file" name="encrypted_key"><br><br>
+    
+    <label>IV (binary):</label><br>
+    <input type="file" name="iv"><br><br>
+    
+    <label>Encrypted Face Image:</label><br>
+    <input type="file" name="encrypted_image"><br><br>
+    
+    <label>Encrypted Criminal Data:</label><br>
+    <input type="file" name="encrypted_data"><br><br>
+    
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>

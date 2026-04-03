@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Details Table</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background-color: #fdf2f2;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b91c1c;
+    }
+
+    .table-container {
+      max-width: 1000px;
+      margin: auto;
+      overflow-x: auto;
+      background: #fffafa;
+      box-shadow: 0 0 10px rgba(255,0,0,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #fecaca;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .add-btn {
+      background-color: #dc2626;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .add-btn .icon-add::before {
+      content: '\2795'; /* Heavy Plus */
+      margin-right: 6px;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #fcdcdc;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #dc2626;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff1f1;
+    }
+
+    tr:hover {
+      background-color: #ffe4e4;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #fecaca;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+    /* Existing icons */
+    .icon-btn .icon-edit::before {
+      content: '\270E'; /* Pencil */
+    }
+    .icon-btn .icon-delete::before {
+      content: '\1F5D1'; /* Wastebasket */
+    }
+    /* New approve/reject icons */
+    .icon-btn .icon-approve::before {
+      content: '\2714'; /* Check mark */
+    }
+    .icon-btn .icon-reject::before {
+      content: '\2716'; /* Heavy Multiplication X */
+    }
+
+    .icon-btn.edit { color: #2563eb; }
+    .icon-btn.delete { color: #dc2626; }
+    .icon-btn.approve { color: #16a34a; } /* Greenish */
+    .icon-btn.reject { color: #dc2626; }  /* Reddish */
+
+    @media (max-width: 600px) {
+      th, td { padding: 10px 8px; }
+      .add-btn { padding: 6px 10px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <h2>User Details</h2>
+  <div class="table-container">
+    <div class="actions">
+      <button class="add-btn"><span class="icon-add"></span>Add User</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Profile</th>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="https://via.placeholder.com/40" alt="Alice" class="profile-pic"></td>
+          <td>U001</td>
+          <td>Alice Johnson</td>
+          <td>alice@example.com</td>
+          <td>+1 234 567 8901</td>
+          <td>Admin</td>
+          <td>
+            <button class="icon-btn approve" title="Approve"><span class="icon-approve"></span></button>
+            <button class="icon-btn reject" title="Reject"><span class="icon-reject"></span></button>
+            <button class="icon-btn edit" title="Edit"><span class="icon-edit"></span></button>
+            <button class="icon-btn delete" title="Delete"><span class="icon-delete"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="https://via.placeholder.com/40" alt="Bob" class="profile-pic"></td>
+          <td>U002</td>
+
+          <td>Bob Smith</td>
+          <td>bob@example.com</td>
+          <td>+1 987 654 3210</td>
+          <td>Editor</td>
+          <td>
+            <button class="icon-btn approve" title="Approve"><span class="icon-approve"></span></button>
+            <button class="icon-btn reject" title="Reject"><span class="icon-reject"></span></button>
+            <button class="icon-btn edit" title="Edit"><span class="icon-edit"></span></button>
+            <button class="icon-btn delete" title="Delete"><span class="icon-delete"></span></button>
+          </td>
+        </tr>
+        <!-- Add more user rows as needed -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
