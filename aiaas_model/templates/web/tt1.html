@@ -1,0 +1,73 @@
+<form action="/save_model_metadata" method="post">
+  <h3>CrimeNet Model Metadata</h3>
+
+  <label for="model_id">Model ID:</label>
+  <input type="text" id="model_id" name="model_id" value="CRIME-MODEL-001" readonly>
+
+  <label for="model_name">Model Name:</label>
+  <input type="text" id="model_name" name="model_name" value="CrimeNet Face Recognition AI">
+
+  <label for="model_version">Model Version:</label>
+  <input type="text" id="model_version" name="model_version" value="v1.0">
+
+  <label for="owner_id">Model Owner ID:</label>
+  <input type="text" id="owner_id" name="owner_id" value="OWNER-12345">
+
+  <label for="description">Model Description:</label>
+  <textarea id="description" name="description" rows="2">Face recognition AI model for crime detection.</textarea>
+
+  <label for="model_type">Model Type:</label>
+  <select id="model_type" name="model_type">
+    <option value="classification" selected>Classification</option>
+    <option value="regression">Regression</option>
+    <option value="clustering">Clustering</option>
+    <option value="detection">Detection</option>
+  </select>
+
+  <label for="input_type">Input Type:</label>
+  <input type="text" id="input_type" name="input_type" value="Encrypted Facial Features (FHE)">
+
+  <label for="output_type">Output Type:</label>
+  <input type="text" id="output_type" name="output_type" value="Suspect Identity with Confidence Score">
+
+  <label for="algorithm">Model Algorithm:</label>
+  <input type="text" id="algorithm" name="algorithm" value="Convolutional Neural Network (CNN)">
+
+  <label for="dataset_info">Training Dataset Info:</label>
+  <textarea id="dataset_info" name="dataset_info" rows="2">50,000 labeled face images from crime database.</textarea>
+
+  <label for="accuracy">Model Accuracy (%):</label>
+  <input type="number" id="accuracy" name="accuracy" value="92.47" step="0.01" min="0" max="100">
+
+  <label for="metrics">Evaluation Metrics:</label>
+  <input type="text" id="metrics" name="metrics" value="Accuracy, Precision, Recall, F1-Score">
+
+  <label for="fhe">Homomorphic Encryption:</label>
+  <select id="fhe" name="fhe">
+    <option value="yes" selected>Yes</option>
+    <option value="no">No</option>
+  </select>
+
+  <label for="encryption_status">Encryption Status:</label>
+  <input type="text" id="encryption_status" name="encryption_status" value="Encrypted">
+
+  <label for="deployment_date">Model Deployment Date:</label>
+  <input type="date" id="deployment_date" name="deployment_date" value="2025-01-15">
+
+  <label for="last_updated">Last Updated Date:</label>
+  <input type="date" id="last_updated" name="last_updated" value="2025-03-10">
+
+  <label for="usage_count">Usage Count:</label>
+  <input type="number" id="usage_count" name="usage_count" value="285" min="0">
+
+  <label for="permissions">Access Permissions:</label>
+  <textarea id="permissions" name="permissions" rows="2">Authorized Law Enforcement Agencies Only</textarea>
+
+  <label for="license">License Type:</label>
+  <input type="text" id="license" name="license" value="Proprietary">
+
+  <label for="compliance">Compliance Status:</label>
+  <input type="text" id="compliance" name="compliance" value="Compliant">
+
+  <button type="submit">Save Metadata</button>
+</form>

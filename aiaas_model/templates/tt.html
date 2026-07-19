@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Details Table</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background-color: #fdf2f2;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b91c1c;
+    }
+
+    .table-container {
+      max-width: 1000px;
+      margin: auto;
+      overflow-x: auto;
+      background: #fffafa;
+      box-shadow: 0 0 10px rgba(255,0,0,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #fecaca;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #fcdcdc;
+    }
+
+    th {
+      background-color: #dc2626;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff1f1;
+    }
+
+    tr:hover {
+      background-color: #ffe4e4;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>User Details</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>U001</td>
+          <td>Alice Johnson</td>
+          <td>alice@example.com</td>
+          <td>+1 234 567 8901</td>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <td>U002</td>
+          <td>Bob Smith</td>
+          <td>bob@example.com</td>
+          <td>+1 987 654 3210</td>
+          <td>Editor</td>
+        </tr>
+        <!-- More rows -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
