@@ -1,8 +1,162 @@
-AI as a Service (AIaaS) Flask Model
+Privacy-Preserving Model-as-a-Service (MaaS) Platform
 
 
 
-An enterprise-ready, modular AI model-serving pipeline and web application built with Python and the Flask micro-framework. This project encapsulates the "AI as a Service" (AIaaS) design pattern, exposing a serialized predictive model as a lightweight, secure REST API and user-friendly web dashboard.
+An enterprise-ready, cryptographically secure Model-as-a-Service (MaaS) microservice and web application built with Python and Flask. This project introduces a secure cloud-based AI service framework implementing Fully Homomorphic Encryption (FHE) via Microsoft SEAL (PySEAL).
+
+
+
+It enables untrusted cloud infrastructure to execute high-performance machine learning inference directly on encrypted user data. The underlying algorithms guarantee that neither private user inputs nor proprietary model parameters are decrypted during computation, eliminating the risk of data breaches, model inversion, or inference leakage attacks.
+
+
+
+🔒 Cryptographic Core: Fully Homomorphic Encryption (FHE)
+
+
+
+Traditional encryption schemes protect data "at rest" and "in transit" but require decryption "in use" (during processing). This project implements the Brakerski-Fan-Vercauteren (BFV) homomorphic encryption scheme, allowing mathematical operations to be executed on encrypted ciphertexts:
+
+
+
+&#x20;                     m  ─────────── f(m) ───────────► Plaintext Result
+
+&#x20;                     │                                      ▲
+
+&#x20;                     │ Encrypt()                            │ Decrypt()
+
+&#x20;                     ▼                                      │
+
+&#x20;                  Enc(m) ───────── Eval(f) ─────────► Enc(f(m)) (Encrypted Result)
+
+
+
+
+
+Mathematical Foundations
+
+
+
+Additive Homomorphic Property: Adding two ciphertexts yields an encrypted sum without decrypting the values:
+
+
+
+
+
+$$\\text{Dec}(\\text{Enc}(m\_1) \\oplus \\text{Enc}(m\_2)) = m\_1 + m\_2$$
+
+
+
+Multiplicative Homomorphic Property: Multiplying two ciphertexts yields an encrypted product:
+
+
+
+
+
+$$\\text{Dec}(\\text{Enc}(m\_1) \\otimes \\text{Enc}(m\_2)) = m\_1 \\times m\_2$$
+
+
+
+Arbitrary Function Evaluation: For any model computation pipeline represented by a circuit $f$:
+
+
+
+
+
+$$\\text{Dec}(f(\\text{Enc}(m\_1), \\dots, \\text{Enc}(m\_n))) = f(m\_1, \\dots, m\_n)$$
+
+
+
+In this system, the Plaintext Modulus is configured to $t = 1024$ and the Polynomial Modulus Degree to $N = 4096$, balancing robust security guarantees against quantum-class attacks with real-world execution speeds.
+
+
+
+🧠 System Architecture \& Workflow
+
+
+
+The platform decouples operations among three distinct entities: the Model Owner, the Model User, and the MaaS Cloud Service Provider (Admin), using a zero-trust model.
+
+
+
+graph TD
+
+&#x20;   %% Define Nodes
+
+&#x20;   subgraph Userspace \[Local Client Space]
+
+&#x20;       User\[AI Model User]
+
+&#x20;       Owner\[Model Owner / Developer]
+
+&#x20;   end
+
+
+
+&#x20;   subgraph ServiceProvider \[MaaS Cloud Space]
+
+&#x20;       Provider\[AI Model Service Server]
+
+&#x20;       DB\[(MySQL 5 Database)]
+
+&#x20;   end
+
+
+
+&#x20;   %% Key Generation \& Registration Protocol
+
+&#x20;   Owner -->|1. Register/Login| Provider
+
+&#x20;   User -->|1. Register/Login| Provider
+
+&#x20;   Provider -->|2. Generate Cryptographic Keys| DB
+
+&#x20;   Provider -.->|3. Public Key| Owner
+
+&#x20;   Provider -.->|3. Private Key| User
+
+
+
+&#x20;   %% Model Deployment Phase
+
+&#x20;   Owner -->|4. Encrypt Model Features| Owner
+
+&#x20;   Owner -->|5. Deploy Encrypted CNN Parameters| Provider
+
+&#x20;   Provider -->|6. Store Encrypted Model| DB
+
+
+
+&#x20;   %% Inference Phase
+
+&#x20;   User -->|7. Encrypt Input Data| User
+
+&#x20;   User -->|8. Upload Encrypted Ciphertext| Provider
+
+&#x20;   Provider -->|9. Secure FHE Circuit Evaluation| Provider
+
+&#x20;   Provider -->|10. Generate Encrypted Predictions| Provider
+
+&#x20;   Provider -->|11. Send Encrypted Results| User
+
+&#x20;   User -->|12. Decrypt locally with Secret Key| User
+
+
+
+&#x20;   %% Styling
+
+&#x20;   classDef client fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+
+&#x20;   classDef cloud fill:#1e293b,stroke:#475569,stroke-width:2px,color:#fff;
+
+&#x20;   classDef database fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+
+&#x20;   class User,Owner client;
+
+&#x20;   class Provider cloud;
+
+&#x20;   class DB database;
+
+
 
 
 
@@ -10,55 +164,23 @@ An enterprise-ready, modular AI model-serving pipeline and web application built
 
 
 
-High-Performance REST API: Exposes clean /predict endpoints that accept JSON inputs and return real-time model inferences.
+End-to-End Encryption: Inputs remain securely masked as random-noise ciphertexts during transmission, database storage, and active execution phases.
 
 
 
-Dynamic Web UI: Fully responsive web interface that takes user features, handles field validations, and prints results instantly.
+Microsoft SEAL Core: Built on top of PySEAL bindings to guarantee high-throughput, memory-safe, and hardware-optimized lattice-based cryptographic computations.
 
 
 
-Serialized Model Serving: Standardized model loading pipeline using pickle / joblib for rapid inference with minimal overhead.
+Integrated Facial Recognition Case Study: Features an integrated CrimeNet face classification module (93.54% validation accuracy) to demonstrate privacy-preserving suspect matching.
 
 
 
-Data Preprocessing Layer: Robust backend preprocessing pipeline that sanitizes, scales, and encodes incoming client data streams on the fly.
+Multi-Tenant Access Control: Dedicated, secure routing, credential hashing, and session management for Admins, Developers, and Public Users.
 
 
 
-Production-Grade Design: Easily containerized (Docker-ready) and configured to run using high-concurrency WSGI servers like Gunicorn.
-
-
-
-🧠 System Architecture
-
-
-
-The AIaaS pipeline decouples raw machine learning model parameters from the client interface, serving predictions as an active service API:
-
-
-
-graph TD
-
-&#x20;   A\[Client User Interface / API Client] -->|HTTP POST Request| B\[Flask Application Routing]
-
-&#x20;   B -->|Sanitizes Input| C\[Feature Engineering \& Scaling]
-
-&#x20;   C -->|Constructs Vector Arrays| D\[Trained Model Pipeline]
-
-&#x20;   D -->|Executes Inference| E\[Numerical Classes mapped to Categories]
-
-&#x20;   E -->|JSON Response / HTML Payload| F\[Client Output Screen]
-
-
-
-&#x20;   style A fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff
-
-&#x20;   style D fill:#1e293b,stroke:#475569,stroke-width:1px,color:#fff
-
-&#x20;   style F fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff
-
-
+Live System Auditing: Full database logging of active query counts, calculation processing latencies, client IP addresses, and FHE parameter metrics.
 
 
 
@@ -66,31 +188,35 @@ graph TD
 
 
 
-Backend Framework: Flask (Python)
+Backend Engine: Flask 1.1 (Python 3.8)
 
 
 
-Model Inference Engine: Scikit-Learn, NumPy, Pandas
+Cryptographic Engine: Microsoft SEAL (PySEAL)
 
 
 
-Serialization Utilities: Pickle / Joblib
+Neural Networks \& ML: TensorFlow, Scikit-Learn, NumPy, Pandas, Matplotlib
 
 
 
-Production WSGI Server: Gunicorn
+Database Management: MySQL 5.x / MariaDB (connected via mysql-connector)
 
 
 
-Frontend Design: HTML5, CSS3, Google Fonts
+Local Hosting Stack: WampServer / XAMPP (Apache web container)
 
 
 
-💻 Local Installation \& Setup
+Frontend Design: HTML5, CSS3, Bootstrap 4 (responsive layouts)
 
 
 
-To run this model-serving API locally on your computer, follow these quick steps:
+💻 Local Installation \& Database Setup
+
+
+
+Follow these instructions to configure and run the privacy-preserving application on your local machine:
 
 
 
@@ -98,11 +224,77 @@ Prerequisites
 
 
 
-Make sure you have Python 3.8+ installed on your machine.
+Operating System: Windows 10/11
 
 
 
-1\. Clone the Repository
+Runtime: Python 3.8 (64-bit recommended)
+
+
+
+Web Server Stack: WampServer or XAMPP installed and running
+
+
+
+1\. Database Setup (MySQL)
+
+
+
+Boot up WampServer and open phpMyAdmin in your browser (http://localhost/phpmyadmin).
+
+
+
+Create a new database named: MaaS\_model.
+
+
+
+Import the database structure. In your terminal, run the following command (or paste your schema .sql file inside the phpMyAdmin console):
+
+
+
+CREATE DATABASE IF NOT EXISTS MaaS\_model;
+
+USE MaaS\_model;
+
+
+
+\-- Table for developer registration records
+
+CREATE TABLE IF NOT EXISTS am\_developer (
+
+&#x20;   id INT AUTO\_INCREMENT PRIMARY KEY,
+
+&#x20;   name VARCHAR(255) NOT NULL,
+
+&#x20;   mobile VARCHAR(15) NOT NULL,
+
+&#x20;   email VARCHAR(255) NOT NULL,
+
+&#x20;   location VARCHAR(255) NOT NULL,
+
+&#x20;   country VARCHAR(255) NOT NULL,
+
+&#x20;   uname VARCHAR(255) NOT NULL UNIQUE,
+
+&#x20;   pass VARCHAR(255) NOT NULL,
+
+&#x20;   create\_date VARCHAR(50) NOT NULL,
+
+&#x20;   public\_key TEXT,
+
+&#x20;   private\_key TEXT
+
+);
+
+
+
+
+
+2\. Configure Local Virtual Environment
+
+
+
+Clone the repository and build an isolated runtime sandbox:
 
 
 
@@ -112,35 +304,19 @@ cd aiaas-flask-model
 
 
 
-
-
-2\. Configure Virtual Environment (Recommended)
-
-
-
-Set up a virtual sandbox to isolate your project packages:
-
-
-
 python -m venv venv
-
-\# On Windows:
 
 venv\\Scripts\\activate
 
-\# On macOS/Linux:
-
-source venv/bin/activate
 
 
 
 
-
-3\. Install Dependencies
-
+3\. Install Core Dependencies
 
 
-Install the necessary scientific computing and web libraries:
+
+Install the cryptographic binaries alongside standard mathematical packages:
 
 
 
@@ -150,71 +326,139 @@ pip install -r requirements.txt
 
 
 
-4\. Boot the Web Server
+(Note: Ensure PySEAL binaries matching your Python architecture are correctly referenced inside your local search paths).
 
 
 
-Start your local microservice server:
+4\. Boot the Application Server
 
 
 
-python app.py
+Start your server instances using the default local route:
 
 
 
-
-
-Now, navigate your web browser to http://127.0.0.1:5000 to interact with your AI Model Interface!
-
-
-
-⚡ API Usage Example
-
-
-
-You can retrieve model predictions programmatically from any script or terminal client (like curl or Postman):
-
-
-
-curl -X POST http://127.0.0.1:5000/predict \\
-
-&#x20;    -H "Content-Type: application/json" \\
-
-&#x20;    -d '{"features": \[1.5, 2.3, 0.8, 3.2]}'
+python main.py
 
 
 
 
 
-Success Response (JSON):
+Now, navigate your web browser to http://localhost:5000 to access the homepage!
 
 
 
-{
-
-&#x20; "status": "success",
-
-&#x20; "prediction": "Class A",
-
-&#x20; "confidence": 0.912
-
-}
+🔬 System Evaluation \& Test Report
 
 
 
-
-
-☁️ Public Cloud Deployment
-
-
-
-This repository is optimized for one-click hosting on public clouds like Render, Heroku, or Azure App Service:
+Test ID
 
 
 
-Build Command: pip install -r requirements.txt
+Input / Action
 
 
 
-Start Command: gunicorn app:app (or your corresponding server entry point)
+Expected Output
+
+
+
+Status
+
+
+
+TC001
+
+
+
+User uploads encrypted biometric image
+
+
+
+Accepted and queued for computation
+
+
+
+Pass ✅
+
+
+
+TC002
+
+
+
+User attempts raw plain text upload
+
+
+
+Rejected with manual encryption notice
+
+
+
+Pass ✅
+
+
+
+TC003
+
+
+
+Circuit arithmetic computation ($E(m) \\otimes E(w)$)
+
+
+
+Correctly outputs output ciphertext $E(y)$
+
+
+
+Pass ✅
+
+
+
+TC005
+
+
+
+Authorized decryption key applied
+
+
+
+Ciphertext returns clean plaintext details
+
+
+
+Pass ✅
+
+
+
+TC006
+
+
+
+Incorrect private key execution
+
+
+
+Decryption routine yields cryptographic noise
+
+
+
+Pass ✅
+
+
+
+🔮 Future Enhancements
+
+
+
+Mobile Integration: Building native iOS and Android application templates for secure on-the-go FHE inquiries.
+
+
+
+Immutable Audits via Blockchain: Integrating decentralised distributed ledgers to securely record encrypted access trails.
+
+
+
+Large-scale GPU Optimization: Offloading homomorphic evaluations to CUDA pipelines to significantly reduce latency on highly complex layers.
 
