@@ -7,9 +7,8 @@ It enables untrusted cloud infrastructure to execute high-performance machine le
 🔒 Cryptographic Core: Fully Homomorphic Encryption (FHE)
 
 Traditional encryption schemes protect data "at rest" and "in transit" but require decryption "in use" (during processing). This project implements the Brakerski-Fan-Vercauteren (BFV) homomorphic encryption scheme, allowing mathematical operations to be executed on encrypted ciphertexts:
-
+```mermaid
 flowchart TD
-    
     %% Define Subgraphs to distinguish secure vs insecure environments
     subgraph ClientSpace [🔒 Secure Client Local Machine]
         direction LR
@@ -33,6 +32,7 @@ flowchart TD
     classDef cloud fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#fff;
     class Plaintext,Decrypted client;
     class Ciphertext,CalculatedCipher cloud;
+```
 
 
 Mathematical Foundations
@@ -58,8 +58,8 @@ In this system, the Plaintext Modulus is configured to $t = 1024$ and the Polyno
 
 The platform decouples operations among three distinct entities: the Model Owner, the Model User, and the MaaS Cloud Service Provider (Admin), using a zero-trust model.
 
+```mermaid
 graph TD
-    
     %% Define Nodes
     subgraph Userspace [Local Client Space]
         User[AI Model User]
@@ -98,6 +98,7 @@ graph TD
     class User,Owner client;
     class Provider cloud;
     class DB database;
+```
 
 
 🚀 Key Features
