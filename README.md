@@ -197,53 +197,13 @@ Now, navigate your web browser to http://localhost:5000 to access the homepage!
 
 🔬 System Evaluation & Test Report
 
-Test ID
-
-Input / Action
-
-Expected Output
-
-Status
-
-TC001
-
-User uploads encrypted biometric image
-
-Accepted and queued for computation
-
-Pass ✅
-
-TC002
-
-User attempts raw plain text upload
-
-Rejected with manual encryption notice
-
-Pass ✅
-
-TC003
-
-Circuit arithmetic computation ($E(m) \otimes E(w)$)
-
-Correctly outputs output ciphertext $E(y)$
-
-Pass ✅
-
-TC005
-
-Authorized decryption key applied
-
-Ciphertext returns clean plaintext details
-
-Pass ✅
-
-TC006
-
-Incorrect private key execution
-
-Decryption routine yields cryptographic noise
-
-Pass ✅
+| Test ID | Input / Action | Expected Output | Status |
+|---------|----------------|-----------------|--------|
+| **TC001** | User uploads encrypted biometric image | Accepted and queued for computation | ✅ Pass |
+| **TC002** | User attempts raw plain text upload | Rejected with manual encryption notice | ✅ Pass |
+| **TC003** | Circuit arithmetic computation (`E(m) ⊗ E(w)`) | Correctly outputs output ciphertext `E(y)` | ✅ Pass |
+| **TC005** | Authorized decryption key applied | Ciphertext returns clean plaintext details | ✅ Pass |
+| **TC006** | Incorrect private key execution | Decryption routine yields cryptographic noise | ✅ Pass |
 
 🔮 Future Enhancements
 
