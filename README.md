@@ -18,15 +18,53 @@ Traditional encryption schemes protect data "at rest" and "in transit" but requi
 
 
 
-&#x20;                     m  ─────────── f(m) ───────────► Plaintext Result
+flowchart TD
 
-&#x20;                     │                                      ▲
+&#x20;   %% Define Subgraphs to distinguish secure vs insecure environments
 
-&#x20;                     │ Encrypt()                            │ Decrypt()
+&#x20;   subgraph ClientSpace \[🔒 Secure Client Local Machine]
 
-&#x20;                     ▼                                      │
+&#x20;       direction LR
 
-&#x20;                  Enc(m) ───────── Eval(f) ─────────► Enc(f(m)) (Encrypted Result)
+&#x20;       Plaintext\[Raw Plaintext Data: m]
+
+&#x20;       Decrypted\[Decrypted Final Result: f m]
+
+&#x20;   end
+
+
+
+&#x20;   subgraph UntrustedCloud \[☁️ Cloud Server / MaaS Space]
+
+&#x20;       direction LR
+
+&#x20;       Ciphertext\[Encrypted Ciphertext: Enc m]
+
+&#x20;       CalculatedCipher\[Encrypted Calculation Result: Enc f m]
+
+&#x20;   end
+
+
+
+&#x20;   %% Cryptographic Operations Flow
+
+&#x20;   Plaintext -->|1. FHE Encrypt| Ciphertext
+
+&#x20;   Ciphertext -->|2. Secure Homomorphic Evaluation: f| CalculatedCipher
+
+&#x20;   CalculatedCipher -->|3. Local Decrypt| Decrypted
+
+
+
+&#x20;   %% Styling
+
+&#x20;   classDef client fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#fff;
+
+&#x20;   classDef cloud fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#fff;
+
+&#x20;   class Plaintext,Decrypted client;
+
+&#x20;   class Ciphertext,CalculatedCipher cloud;
 
 
 
